@@ -101,7 +101,12 @@ export const authoptions = {
                 headers: {
                     'Content-type': 'application/json'
                 },
-                body: JSON.stringify({ name: message?.user.name, email: message?.user?.email, password: message?.user?.id, image: message?.user?.image })
+                body: JSON.stringify({
+                    name: message?.user.name,
+                    email: message?.user?.email,
+                    password: message?.user?.id,
+                    image: message?.user?.image
+                })
             });
             const response = await res.json()
             message.user.accessToken = response.AuthToken;
