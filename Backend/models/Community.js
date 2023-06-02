@@ -1,26 +1,27 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
 
-const CommunitySchema = new Schema({ 
-    name: {
-        type: String,
+const CommunitySchema = new Schema({
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
         required: true
     },
-    email: {
+    queryTitle: {
         type: String,
         required: true,
-        unique: true
     },
-    password: {
+    queryDescription: {
         type: String,
         required: true
     },
-    image: {
-        type: String
+    queryViews: {
+        type: Number,
+        default: 0
     },
-    isAdmin: {
-        type: Boolean,
-        default: false
+    queryLikes: {
+        type: Number,
+        default: 0
     }
 },
     {

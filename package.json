@@ -13,6 +13,7 @@
     "@heroicons/react": "^2.0.18",
     "@iconify/icons-heroicons-solid": "^1.2.6",
     "autoprefixer": "10.4.14",
+    "framer-motion": "^10.12.4",
     "heroicons-react": "^1.4.1",
     "jsonwebtoken": "^9.0.0",
     "mongodb": "^5.6.0",

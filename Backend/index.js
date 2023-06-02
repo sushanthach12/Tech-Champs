@@ -12,6 +12,7 @@ app.use(cors())
 app.use(express.json()) // if you want use req body , you have to use thsi
 
 app.use('/api/auth', require('./routes/auth'))
+app.use('/api/community', require('./routes/community'))
 
 app.listen(port, () => {
     console.log(`Backend is listening at ${port}`)

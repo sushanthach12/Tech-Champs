@@ -1,5 +1,4 @@
 "use client";
-import Link from 'next/link';
 import { Fragment, useState } from "react";
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -7,12 +6,13 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+
 const navigation = [
-	{ name: "Dashboard", href: "#", current: false },
+	// { name: "Dashboard", href: "/dashboard", current: false },
 	{ name: "Resources", href: "/resource", current: false },
-	{ name: "Get Involved", href: "/workshop", current: false },
+	{ name: "Get Involved", href: "/getinvolved", current: false },
 	{ name: "Contact", href: "/contact", current: false },
-    {name:"Community",href:"/community",current:false},
+	{ name: "Community", href: "/community", current: false },
 ];
 
 function classNames(...classes) {
@@ -21,7 +21,7 @@ function classNames(...classes) {
 
 const Navbar = () => {
 
-	const {data: session} = useSession()
+	const { data: session } = useSession()
 
 	return (
 		<Disclosure as="nav" className="bg-gray-800">
@@ -44,14 +44,14 @@ const Navbar = () => {
 								<div className="flex flex-shrink-0 items-center">
 									<nav>
 										<div className="flex lg:flex-1 ">
-											<a
-												href="#"
+											<Link
+												href="/"
 												className="-m-1.5 p-1 flex justify-center items-center"
 											>
-												<span className="font-bold text-xl tracking-wider dark:text-cyan-600 dark:hover:text-gray-600 px-4">
+												<span className="font-bold text-xl tracking-wider text-orange-400 dark:hover:text-gray-600 px-4">
 													EmpowerED
-											</span>
-											</a>
+												</span>
+											</Link>
 										</div>
 									</nav>
 								</div>
@@ -133,13 +133,13 @@ const Navbar = () => {
 												)}
 											</Menu.Item>
 											<Menu.Item>
-													<span
-														className={"hover:bg-gray-100 block px-4 py-2 text-sm text-gray-700"}
-														onClick={() => signOut({redirect: false})}
-													>
-														Sign out
-													</span>
-												
+												<span
+													className={"hover:bg-gray-100 block px-4 py-2 text-sm text-gray-700"}
+													onClick={() => signOut({ redirect: false })}
+												>
+													Sign out
+												</span>
+
 											</Menu.Item>
 										</Menu.Items>
 									</Transition>
@@ -409,6 +409,6 @@ const Navbar = () => {
 		// </header>
 
 	)
-    };
+};
 
 export default Navbar

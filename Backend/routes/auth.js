@@ -148,7 +148,7 @@ router.post('/googleLogin', [
         let user = await User.findOne({ email: req.body.email });
         if (!user) {
             const hashedPassword = CryptoJS.AES.encrypt(req.body.password, process.env.AES_SEC).toString()
-            console.log(req.body.image);
+
             user = await User.create({
                 name: req.body.name,
                 email: req.body.email,
