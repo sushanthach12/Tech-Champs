@@ -14,7 +14,6 @@ const navigation = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-import React from 'react'
 
 const Navbar = () => {
     return (
