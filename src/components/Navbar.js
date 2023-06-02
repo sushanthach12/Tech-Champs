@@ -1,4 +1,5 @@
 "use client";
+import Link from 'next/link';
 import { Fragment, useState } from "react";
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -7,9 +8,10 @@ import React from "react";
 import { signOut, useSession } from "next-auth/react";
 const navigation = [
 	{ name: "Dashboard", href: "#", current: false },
-	{ name: "Resources", href: "#", current: false },
-	{ name: "Get Involved", href: "#", current: false },
-	{ name: "Contact", href: "#", current: false },
+	{ name: "Resources", href: "/resource", current: false },
+	{ name: "Get Involved", href: "/workshop", current: false },
+	{ name: "Contact", href: "/contact", current: false },
+    {name:"Community",href:"/community",current:false},
 ];
 
 function classNames(...classes) {
@@ -55,7 +57,7 @@ const Navbar = () => {
 								<div className="hidden sm:ml-6 sm:block">
 									<div className="flex space-x-4">
 										{navigation.map((item) => (
-											<a
+											<Link
 												key={item.name}
 												href={item.href}
 												className={classNames(
@@ -67,7 +69,7 @@ const Navbar = () => {
 												aria-current={item.current ? "page" : undefined}
 											>
 												{item.name}
-											</a>
+											</Link>
 										))}
 									</div>
 								</div>

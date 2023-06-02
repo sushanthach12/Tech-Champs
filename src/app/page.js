@@ -1,9 +1,9 @@
 "use client";
-
 import GetToken from "@/utils/GetToken";
 import { getSession, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
+import Link from 'next/link';
 
 export default function Home() {
   const { data: session } = useSession({ required: true, onUnauthenticated() { redirect('/login') } });
@@ -39,7 +39,9 @@ export default function Home() {
         </div>
       </div>
       </div>
-    </main>
+      </div>
+       </main>
+    
   )
 }
 
