@@ -9,11 +9,12 @@ export default function Home() {
   const { data: session } = useSession({ required: true, onUnauthenticated() { redirect('/login') } });
 
   console.log(session);
-  
+
   return (
     <main className="bg-white">
 
-   < div class="relative isolate px-6 lg:px-8">
+   <div class="relative isolate px-6 lg:px-8">
+      <div class="relative isolate px-6 lg:px-8">
         <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
           <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg]  opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" ></div>
         </div>
@@ -35,6 +36,7 @@ export default function Home() {
         <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
           <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2  opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" ></div>
         </div>
+      </div>
       </div>
     </main>
   )
