@@ -5,12 +5,16 @@ const { body, validationResult } = require('express-validator')
 const router = express.Router();
 const CryptoJS = require('crypto-js')
 const jwt = require('jsonwebtoken')
-const authorize = require('../middleware/authorize')
+const authorize = require('../middleware/authorize');
+const { ConvertToBase64 } = require('../utils/convertToBase');
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
 
-router.post('/signup', async (req, res) => {
+router.post('/signup', [
+    body('email', 'Enter a valid email').isEmail(),
+    body('password', 'Password cannot be blank').exists(),
+], async (req, res) => {
     console.log('SIGNup')
 
     const errors = validationResult(req)
@@ -144,11 +148,12 @@ router.post('/googleLogin', [
         let user = await User.findOne({ email: req.body.email });
         if (!user) {
             const hashedPassword = CryptoJS.AES.encrypt(req.body.password, process.env.AES_SEC).toString()
-
+            console.log(req.body.image);
             user = await User.create({
                 name: req.body.name,
                 email: req.body.email,
-                password: hashedPassword
+                password: hashedPassword,
+                image: req.body.image
             })
 
             const data = {
@@ -158,7 +163,7 @@ router.post('/googleLogin', [
             }
 
             const authToken = jwt.sign(data, JWT_SECRET, { expiresIn: 60 * 60 * 24 * 30 });
-            
+
             return res.json({ "Success": true, AuthToken: authToken, isAdmin: user.isAdmin, User: user });
         }
 

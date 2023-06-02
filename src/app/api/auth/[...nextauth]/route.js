@@ -3,6 +3,7 @@ import NextAuth from "next-auth/next";
 import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from "next-auth/providers/credentials";
 import { getSession } from "next-auth/react";
+import { ConvertToBase64 } from "@/utils/ConvertToBase";
 
 export const authoptions = {
     pages: {
@@ -30,15 +31,24 @@ export const authoptions = {
         // CredentialsProvider({
         //     id: "credentials-signup",
         //     async authorize(credentials, req) {
+        //         const userExists = await fetch(`${process.env.NEXT_BACKEND_URL}/api/auth/signup`, {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Content-type': 'application/json'
+        //             },
+        //             body: JSON.stringify({ email: credentials?.email })
+        //         })
+        //         if (!userExists) {
+
+        //         }
         //         const user = {
-        //             "username" : credentials?.username,
+        //             "username": credentials?.username,
         //             "email": credentials?.email,
         //             "password": credentials?.password
         //         }
-        //         console.log(user)
-        //         if(user) {
+        //         if (user) {
         //             return user
-        //         }else{
+        //         } else {
         //             return null
         //         }
         //     }
@@ -57,6 +67,7 @@ export const authoptions = {
             },
 
             async authorize(credentials, req) {
+                console.log(credentials);
                 return true;
             }
         })
@@ -83,19 +94,17 @@ export const authoptions = {
 
     events: {
         async signIn(message) {
-            console.log(message);
-
+            console.log(message)
+            // const base64 = await ConvertToBase64(message?.user?.image);
             const res = await fetch(`${process.env.NEXT_BACKEND_URL}/api/auth/googleLogin`, {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json'
                 },
-                body: JSON.stringify({ name: message?.user.name, email: message?.user?.email, password: message?.user?.id })
+                body: JSON.stringify({ name: message?.user.name, email: message?.user?.email, password: message?.user?.id, image: message?.user?.image })
             });
             const response = await res.json()
             message.user.accessToken = response.AuthToken;
-
-            console.log(message)
         }
     }
 }

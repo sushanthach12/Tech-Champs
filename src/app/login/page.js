@@ -4,6 +4,8 @@ import { getSession, signIn, useSession } from 'next-auth/react'
 import React, { useEffect, useState } from 'react'
 import { redirect } from "next/navigation"
 import { FcGoogle } from 'react-icons/fc'
+import Link from 'next/link';
+import { SignupHandler } from '@/libs/User/AuthContext';
 
 const page = () => {
     const { data: session } = useSession();
@@ -33,6 +35,7 @@ const page = () => {
 
         // signIn("credentials-login", { ...credentials, callbackUrl: `${process.env.NEXT_PUBLIC_HOST}`, redirect: true })
         // handleLogin();
+        
     }
 
     return (
@@ -42,6 +45,11 @@ const page = () => {
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     {/* <img className="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" /> */}
                     <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
+                </div>
+
+                <div className="mt-2 text-center text-sm text-gray-500">
+                    <p>not a member? <Link href="/signup" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 ml-2 underline">Signup</Link></p>
+                    
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -76,11 +84,6 @@ const page = () => {
                         <button type="button" className="flex w-full justify-center rounded-md border-1 bg-white px-3 py-2 text-sm font-semibold leading-6 text-black shadow-sm shadow-gray-200 hover:bg-gray-50 items-center gap-2" onClick={handleGoogleLogin}> <FcGoogle size={20} /> Sign in with Google</button>
 
                     </div>
-
-                    <p className="mt-10 text-center text-sm text-gray-500">
-                        Not a member?
-                        <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 ml-2 underline">Signup</a>
-                    </p>
                 </div>
             </div>
 

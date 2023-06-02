@@ -6,6 +6,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import React from "react";
 import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 const navigation = [
 	{ name: "Dashboard", href: "#", current: false },
 	{ name: "Resources", href: "/resource", current: false },
@@ -49,7 +50,7 @@ const Navbar = () => {
 											>
 												<span className="font-bold text-xl tracking-wider dark:text-cyan-600 dark:hover:text-gray-600 px-4">
 													EmpowerED
-												</span>
+											</span>
 											</a>
 										</div>
 									</nav>
@@ -144,7 +145,7 @@ const Navbar = () => {
 									</Transition>
 								</Menu>}
 
-								<Menu as="div" className="relative ml-3 px-4">
+								{/* <Menu as="div" className="relative ml-3 px-4">
 									<div>
 										<Menu.Button className="flex rounded-full px-2 py-2  text-sm f focus:ring-3 focus:ring-offset-4 bg-gray-300 ">
 											<span className="sr-only">Open user menu</span>
@@ -202,7 +203,7 @@ const Navbar = () => {
 											</Menu.Item>
 										</Menu.Items>
 									</Transition>
-								</Menu>
+								</Menu> */}
 							</div>
 						</div>
 					</div>
