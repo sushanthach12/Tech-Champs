@@ -19,6 +19,10 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.9.0",
-    "tailwindcss": "3.3.2"
+    "tailwindcss": "3.3.2",
+    "@headlessui/react": "^1.7.15",
+    "@heroicons/react": "^2.0.18",
+    "@iconify/icons-heroicons-solid": "^1.2.6",
+    "heroicons-react": "^1.4.1"
   }
 }
