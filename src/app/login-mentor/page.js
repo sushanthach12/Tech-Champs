@@ -5,17 +5,16 @@ import React, { useEffect, useState } from 'react'
 import { redirect } from "next/navigation"
 import { FcGoogle } from 'react-icons/fc'
 import Link from 'next/link';
-import { SignupHandler } from '@/libs/User/AuthContext';
 
 const page = () => {
     const { data: session } = useSession();
 
     useEffect(() => {
-      if(session){
-        redirect('/')
-      }
+        if (session) {
+            redirect('/')
+        }
     }, [session])
-    
+
 
     const handleGoogleLogin = async () => {
         const res = await signIn('google', { callbackUrl: `${process.env.NEXT_PUBLIC_HOST}` })
@@ -30,12 +29,29 @@ const page = () => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         // signIn("credentials-login", { ...credentials, callbackUrl: `${process.env.NEXT_PUBLIC_HOST}`, redirect: true })
         // handleLogin();
-        
+
+        console.log(credentials)
+
+        const res = fetch(`http:localhost://5000/api/auth/login`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({email: credentials.email, password: credentials.password})
+        });
+
+        const response = await res.json();
+
+        if(response.Success) {
+            redirect('/');
+        }else{
+            throw new Error("Invalid credentials")
+        }
     }
 
     return (
@@ -49,15 +65,15 @@ const page = () => {
 
                 <div className="mt-2 text-center text-sm text-gray-500">
                     <p>not a member? <Link href="/signup" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 ml-2 underline">Signup</Link></p>
-                    
+
                 </div>
                 <div className="mt-2 text-center text-sm text-gray-500">
                     <p>or <Link href="/login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 ml-2 underline">Login as mentor</Link></p>
-                    
+
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-3" method="POST" onSubmit={handleSubmit}>
+                    <form className="space-y-3" method="POST">
 
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">Email address</label>
@@ -79,7 +95,7 @@ const page = () => {
                         </div>
 
                         <div className='pt-4'>
-                            <button type="submit" className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+                            <button type="button" className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={handleSubmit}>Sign in</button>
 
                         </div>
                     </form>
