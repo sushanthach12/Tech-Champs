@@ -3,7 +3,7 @@ import React from "react";
 function page() {
   return (
     <div>
-      <section className="text-gray-600 bg-slate-300 body-font relative">
+      <section className="text-gray-600 bg-white body-font relative">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-col text-center w-full mb-12">
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-black">
@@ -24,7 +24,7 @@ function page() {
                     type="text"
                     id="name"
                     name="name"
-                    className="w-full bg-gray-500 bg-opacity-40 rounded border border-gray-700 focus:border-indigo-500 focus:bg-gray-100 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    className="w-full bg-gray-200 bg-opacity-40 rounded border border-gray-700 focus:border-indigo-500 focus:bg-gray-100 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
               </div>
@@ -40,7 +40,7 @@ function page() {
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full bg-gray-500 bg-opacity-40 rounded border border-gray-700 focus:border-indigo-500 focus:bg-gray-100 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    className="w-full bg-gray-200 bg-opacity-40 rounded border border-gray-700 focus:border-indigo-500 focus:bg-gray-100 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
               </div>
@@ -55,7 +55,7 @@ function page() {
                   <textarea
                     id="message"
                     name="message"
-                    className="w-full bg-gray-500 bg-opacity-40 rounded border border-gray-700 focus:border-indigo-500 focus:bg-gray-100 focus:ring-2 focus:ring-indigo-900 h-32 text-base outline-none text-gray-900 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                    className="w-full bg-gray-200 bg-opacity-40 rounded border border-gray-700 focus:border-indigo-500 focus:bg-gray-100 focus:ring-2 focus:ring-indigo-900 h-32 text-base outline-none text-gray-900 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                   ></textarea>
                 </div>
               </div>
@@ -65,11 +65,11 @@ function page() {
                 </button>
               </div>
               <div className="p-2 w-full pt-8 mt-8 border-t border-gray-800 text-center">
-                <a className="text-indigo-400">example@email.com</a>
-                <p className="leading-normal my-5">
+                <a className="text-indigo-400">support@gmail.com</a>
+                {/* <p className="leading-normal my-5">
                   49 Smith St. Saint Cloud, MN 56301
-                </p>
-                <span className="inline-flex">
+                </p> */}
+                {/* <span className="inline-flex">
                   <a className="text-gray-500">
                     <svg
                       fill="currentColor"
@@ -127,7 +127,7 @@ function page() {
                       <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
                     </svg>
                   </a>
-                </span>
+                </span> */}
               </div>
             </div>
           </div>

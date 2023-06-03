@@ -75,7 +75,7 @@ function page() {
         <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           <div class="group relative">
             <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-              <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full" />
+              <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F20%2Fa6%2Fe0%2F20a6e0b66414578e9873dc536797d19f--mens-headshots-professional-headshots.jpg&f=1&nofb=1&ipt=a0ecc432ed81b61affc4a272416bb39251e557a84252514560bda46446d0e88a&ipo=images" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full" />
             </div>
             <div class="mt-4 flex justify-between">
               <div>
@@ -93,7 +93,7 @@ function page() {
 
           <div class="group relative">
             <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-              <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full" />
+              <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.qgSWotUZxUlFx_wqR9VLmgHaLG%26pid%3DApi&f=1&ipt=d2b21bc19df24657c43a541c620b594edf91125a6716efaf21d7d969ee8d14fa&ipo=images" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full" />
             </div>
             <div class="mt-4 flex justify-between">
               <div>
@@ -111,7 +111,7 @@ function page() {
 
           <div class="group relative">
             <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-              <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full" />
+              <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Cf3rSUAqoBhMkJ-HTHq2aAHaLH%26pid%3DApi&f=1&ipt=7c883596f3b79d01a16b946273c32c29adb2fcb79587e0c9b3702bc733beb40c&ipo=images" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full" />
             </div>
             <div class="mt-4 flex justify-between">
               <div>
@@ -129,7 +129,7 @@ function page() {
 
           <div class="group relative">
             <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-              <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full" />
+              <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F07%2F33%2Fba%2F0733ba760b29378474dea0fdbcb97107.png&f=1&nofb=1&ipt=8bf9c97f6b374acfa0632da0db841fc677ba14e0602522226fc8213b9dcde07d&ipo=images" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full" />
             </div>
             <div class="mt-4 flex justify-between">
               <div>

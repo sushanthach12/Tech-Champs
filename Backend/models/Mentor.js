@@ -5,6 +5,7 @@ const MentorSchema = new Schema({
     name: { type: String, required: true },
     expertise: { type: String, required: true },
     bio: { type: String, required: true },
+    image: {type: String},
     email: {
         type: String,
         required: true

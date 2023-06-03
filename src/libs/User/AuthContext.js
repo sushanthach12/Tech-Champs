@@ -1,6 +1,6 @@
 export const SignupHandler = async(credentials) => {
     try {
-        const res = await fetch(`${process.env.NEXT_BACKEND_URL}/api/auth/signup`, {
+        const res = await fetch(`http://localhost:5000/api/auth/signup`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'

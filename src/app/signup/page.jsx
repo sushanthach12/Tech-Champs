@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { redirect } from "next/navigation"
 import { FcGoogle } from 'react-icons/fc'
 import Link from 'next/link';
+import { SignupHandler } from '@/libs/User/AuthContext';
 
 const page = () => {
     const { data: session } = useSession();
@@ -30,10 +31,28 @@ const page = () => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        signIn("credentials-signup", { ...credentials, callbackUrl: `${process.env.NEXT_PUBLIC_HOST}`, redirect: true })
+        // signIn("credentials-signup", { ...credentials, callbackUrl: `${process.env.NEXT_PUBLIC_HOST}`, redirect: true })
+
+        // const res = await fetch(`http://localhost:5000/api/auth/signup`, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password })
+        // })
+
+        // const response = await res.json();
+
+        // if(response.Success) {
+        //     redirect('/');
+        // }
+        const res = await SignupHandler(credentials);
+        if(res.Success) {
+            redirect('/')
+        }
     }
 
     return (
@@ -46,7 +65,7 @@ const page = () => {
                 </div>
                 <div className="mt-2 text-center text-sm text-gray-500">
                     <p>Already have an account? <Link href="/login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 ml-2 underline">Signin</Link></p>
-                    
+
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">

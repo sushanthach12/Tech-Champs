@@ -1,9 +1,12 @@
 "use client"
+import { getSession, useSession } from 'next-auth/react'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 const page = () => {
 
+  const {data: session} = useSession({ required: true, onUnauthenticated() { redirect('/login') } });
   const [mentors, setMentors] = useState({})
 
   useEffect(() => {
@@ -26,11 +29,11 @@ const page = () => {
 
   return (
     <div>
-      <div className="bg-white py-16">
-        <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-rows-3 justify-center items-center">
+      <div className="bg-white py-4">
+        <div className="mx-auto grid max-w-7xl gap-x-3 gap-y-8 px-6 lg:px-8 xl:grid-rows-3 justify-center items-center">
 
-          <div className="max-w-2xl">
-            <h2 className="text-3xl text-center font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our leadership</h2>
+          <div className="w-full">
+            <h2 className="text-3xl text-center font-bold tracking-tight text-gray-900">Meet our Mentors</h2>
             <p className="mt-6 text-center text-lg leading-8 text-gray-600">Libero fames augue nisl porttitor nisi, quis. Id ac elit odio vitae elementum enim vitae ullamcorper suspendisse.</p>
           </div>
 
@@ -40,7 +43,7 @@ const page = () => {
               return (
                 <div className="flex flex-col justify-start items-center gap-x-6 border-2 border-gray-200 p-4 rounded-md">
                   <div className='flex justify-center items-center gap-x-6'>
-                    <img className="h-14 w-14 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    <img className="h-14 w-14 rounded-full" src={`${mentors[index].image}`} alt="" />
                     <div>
                       <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">{mentors[index].name}</h3>
                       <p className="text-sm font-semibold leading-6 text-indigo-600">{mentors[index].expertise}</p>
@@ -66,3 +69,21 @@ const page = () => {
 }
 
 export default page
+
+export const getServerSideProps = async (context) => {
+	const session = getSession(context);
+
+	if (!session) {
+		return {
+			redirect: {
+				destination: '/login'
+			}
+		}
+	} else {
+		return {
+			props: {
+				session: session
+			}
+		}
+	}
+}

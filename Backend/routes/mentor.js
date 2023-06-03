@@ -47,6 +47,7 @@ router.post('/mentorSignup', [
             name: req.body.name,
             expertise: req.body.expertise,
             bio: req.body.bio,
+            image: req?.body?.image,
             email: req.body.email,
             password: hashedPassword
         })
@@ -60,6 +61,46 @@ router.post('/mentorSignup', [
         const authToken = jwt.sign(data, JWT_SECRET, { expiresIn: 60 * 60 * 24 * 30 });
 
         return res.status(200).json({ "Success": true, 'AuthToken': authToken });
+
+    } catch (err) {
+        return res.status(500).send("Internal Server error")
+    }
+})
+
+router.post('/login', [
+    body('email', 'Enter a valid email').isEmail(),
+    body('password', 'Password cannot be blank').exists(),
+], async (req, res) => {
+    console.log('Login')
+
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ err: errors.array() })
+    }
+
+    try {
+
+        let mentor = await Mentor.findOne({ email: req.body.email });
+        if (!mentor) {
+            return res.status(400).json({ error: "Sorry a mentor with this email dosnt exists!" })
+        }
+
+        const hashedPassword = CryptoJS.AES.decrypt(mentor.password, process.env.AES_SEC);
+        const password = hashedPassword.toString(CryptoJS.enc.Utf8)
+
+        if (password !== req.body.password) {
+            return res.status(400).json({ error: "Please enter correct credentials" })
+        }
+
+        const data = {
+            user: {
+                id: mentor.id
+            }
+        }
+
+        const authToken = jwt.sign(data, JWT_SECRET, { expiresIn: 60 * 60 * 24 * 30 });
+
+        return res.json({ "Success": true, "AuthToken": authToken, "Mentor": mentor });
 
     } catch (err) {
         return res.status(500).send("Internal Server error")

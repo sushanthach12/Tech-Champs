@@ -6,7 +6,8 @@ import { BiPlus } from "react-icons/bi"
 
 const page = () => {
     const [allQueryPosts, setAllQueryPosts] = useState({})
-
+    
+    const [showPostQueryForm, setShowPostQueryForm] = useState(false)
     useEffect(() => {
         (
             async () => {
@@ -22,7 +23,7 @@ const page = () => {
                 await setAllQueryPosts({ ...response.Query })
             }
         )()
-    }, [])
+    }, [showPostQueryForm])
 
     console.log(allQueryPosts)
 
@@ -30,7 +31,6 @@ const page = () => {
     const [showCategory, setShowCategory] = useState(false)
     const [showTags, setShowTags] = useState(false)
 
-    const [showPostQueryForm, setShowPostQueryForm] = useState(false)
 
     return (
         <div className='my-4 mx-24 py-4'>

@@ -47,9 +47,10 @@ router.post('/getAllQuery', async (req, res) => {
 
     try {
 
-        const allQueryPost = await Community.find().populate("user")
+        const allQueryPost = await Community.find().populate("user").sort({'createdAt' : -1})
 
-        return res.status(200).json({ "Success": true, 'Query': {...allQueryPost} });
+
+        return res.status(200).json({ "Success": true, 'Query': { ...allQueryPost } });
 
     } catch (err) {
         return res.status(500).send("Internal Server error")

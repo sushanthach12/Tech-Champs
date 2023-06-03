@@ -37,19 +37,19 @@ const page = () => {
 
         console.log(credentials)
 
-        const res = fetch(`http:localhost://5000/api/auth/login`, {
+        const res = await fetch(`http:localhost://5000/api/mentor/login`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify({email: credentials.email, password: credentials.password})
+            body: JSON.stringify({ email: credentials.email, password: credentials.password })
         });
 
         const response = await res.json();
 
-        if(response.Success) {
+        if (response.Success) {
             redirect('/');
-        }else{
+        } else {
             throw new Error("Invalid credentials")
         }
     }
@@ -68,7 +68,7 @@ const page = () => {
 
                 </div>
                 <div className="mt-2 text-center text-sm text-gray-500">
-                    <p>or <Link href="/login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 ml-2 underline">Login as mentor</Link></p>
+                    <p>or <Link href="/login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 ml-2 underline">Login as Entreprenuer</Link></p>
 
                 </div>
 
